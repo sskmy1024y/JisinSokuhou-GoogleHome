@@ -15,7 +15,7 @@ $ npm start
 ## Forever
 ```bash
 $ npm install -g forever
-$ npm deamon
+$ forever start index.js
 
 # watch forever list
 $ forever list 
