@@ -5,7 +5,7 @@ const options = {
   language: "ja",
   accent: "ja"
 };
-const myHome = new GoogleHome("192.168.1.6", options); //GoogleHomeのIPアドレス。GoogleHomeアプリからIP見れるのでそれをいれる。
+const myHome = new GoogleHome(process.env.GOOGLEHOME_IP, options); //GoogleHomeのIPアドレス。GoogleHomeアプリからIP見れるのでそれをいれる。
 const client = new twitter({ //TwitterAPIの各種APIKEY
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
@@ -33,6 +33,8 @@ client.stream('statuses/filter', {
         let intensity = para[10];
         let final = forecast == "final";
         let notitype;
+        // 最大震度3~5では最終報のみ、6,7では全部言おう
+        if (intensity.match(/[０-２]/g) || intensity.match(/[３-５]/g) && !final) return false
         if (final) {
           notitype = "最終報";
         } else {
