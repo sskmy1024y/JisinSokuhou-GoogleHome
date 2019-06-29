@@ -1,10 +1,13 @@
 # 地震速報を読み上げくん
-GoogleHomeに、地震が来たら読み上げてもらうくん
+
+GoogleHome に、地震が来たら読み上げてもらうくん
 
 ## Require
-* nodejs
+
+- nodejs
 
 ## How to use
+
 ```bash
 $ npm install
 $ cp .env.example .env
@@ -12,13 +15,14 @@ $ cp .env.example .env
 $ npm start
 ```
 
-## Forever
+## Forever Start
+
 ```bash
 $ npm install -g forever
 $ forever start index.js
 
 # watch forever list
-$ forever list 
+$ forever list
 
 # finish forever
 $ forever stop <uid in forever list>
