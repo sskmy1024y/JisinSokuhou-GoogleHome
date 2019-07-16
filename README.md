@@ -15,7 +15,30 @@ $ cp .env.example .env
 $ npm start
 ```
 
-## Forever Start
+## pm2 Start
+
+```bash
+$ npm i -g pm2
+$ pm2 start index.js --name JishinSokuho
+
+# watch pm2 list
+$ pm2 ls
+
+# other
+$ pm2 stop     <app_name|id|'all'|json_conf>
+$ pm2 restart  <app_name|id|'all'|json_conf>
+$ pm2 delete   <app_name|id|'all'|json_conf>
+
+# Generate Startup Script
+$ pm2 startup
+# Freeze your process list across server restart
+$ pm2 save
+
+# Remove Startup Script
+$ pm2 unstartup
+```
+
+## ~~Forever Start~~
 
 ```bash
 $ npm install -g forever
